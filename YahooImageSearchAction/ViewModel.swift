@@ -23,6 +23,7 @@ protocol ViewModelInputs {
 protocol ViewModelOutputs {
     // 検索結果
     var items: Observable<[Img]> { get }
+    var values: Variable<[Img]> { get }
     // 検索ボタンの押下可否
     var isSearchButtonEnabled: Observable<Bool> { get }
     // 検索中か
@@ -49,16 +50,17 @@ class ViewModel: ViewModelType, ViewModelInputs, ViewModelOutputs {
 
     // Output Sources
     let items: Observable<[Img]>                    // 検索結果
+    let values: Variable<[Img]>
     let isSearchButtonEnabled: Observable<Bool>     // 検索ボタンの押下可否
     let isLoading: Observable<Bool>                 // 検索中か
     let error: Observable<ActionError>              // エラー
 
     private let action: Action<String, [Img]>       // 動作実態部分定義
     private let disposeBag = DisposeBag()
-    private let _items = Variable<[Img]>([])        // 検索結果内部変数
 
     init() {
-        self.items = self._items.asObservable()
+        self.values = Variable<[Img]>([])
+        self.items = self.values.asObservable()
 
         // 検索キーワード3文字以上で検索可能に
         self.isSearchButtonEnabled = self.searchWord.asObservable()
@@ -93,8 +95,8 @@ class ViewModel: ViewModelType, ViewModelInputs, ViewModelOutputs {
 
         // Actionのoutputsを検索結果に渡す
         self.action.elements
-            .bind(to: self._items)
-        .disposed(by: disposeBag)
+            .bind(to: self.values)
+            .disposed(by: disposeBag)
 
         // 検索中
         self.isLoading = action.executing.startWith(false)

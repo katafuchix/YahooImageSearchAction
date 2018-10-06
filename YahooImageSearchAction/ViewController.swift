@@ -10,6 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import MBProgressHUD
+import SKPhotoBrowser
 
 class ViewController: UIViewController {
 
@@ -58,6 +59,9 @@ class ViewController: UIViewController {
                 cell.configure(URL(string: element.src)!)
             }.disposed(by: self.disposeBag)
 
+        self.collectionView.rx.setDelegate(self)
+            .disposed(by: self.disposeBag)
+
         // 検索中はMBProgressHUDを表示
         self.viewModel.outputs.isLoading.asDriver(onErrorJustReturn: false)
             .drive(MBProgressHUD.rx.isAnimating(view: self.view))
@@ -74,3 +78,16 @@ class ViewController: UIViewController {
     }
 
 }
+
+// 画像ビューワーでい検索結果の画像をスライド表示
+extension ViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+         let photos: [SKPhoto] = self.viewModel.outputs.values.value
+            .compactMap { return SKPhoto.photoWithImageURL($0.src) }
+        
+         let browser = SKPhotoBrowser(photos: photos)
+         browser.initializePageIndex(indexPath.row)
+         self.present(browser, animated: true, completion: {})
+    }
+}
+
