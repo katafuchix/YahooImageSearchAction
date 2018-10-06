@@ -79,7 +79,7 @@ class ViewController: UIViewController {
 
 }
 
-// 画像ビューワーでい検索結果の画像をスライド表示
+// 画像ビューワーで検索結果の画像をスライド表示
 extension ViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
          let photos: [SKPhoto] = self.viewModel.outputs.values.value
