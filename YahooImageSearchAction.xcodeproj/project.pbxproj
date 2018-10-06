@@ -8,20 +8,34 @@
 
 /* Begin PBXBuildFile section */
 		3175F63A2168747E0046CFFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3175F6392168747E0046CFFD /* AppDelegate.swift */; };
-		3175F63C2168747E0046CFFD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3175F63B2168747E0046CFFD /* ViewController.swift */; };
-		3175F63F2168747E0046CFFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3175F63D2168747E0046CFFD /* Main.storyboard */; };
 		3175F6412168747F0046CFFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3175F6402168747F0046CFFD /* Assets.xcassets */; };
 		3175F6442168747F0046CFFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3175F6422168747F0046CFFD /* LaunchScreen.storyboard */; };
+		3175F650216875350046CFFD /* Img.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3175F64B216875340046CFFD /* Img.swift */; };
+		3175F651216875350046CFFD /* ImageItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3175F64C216875340046CFFD /* ImageItemCell.swift */; };
+		3175F652216875350046CFFD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3175F64D216875340046CFFD /* ViewController.swift */; };
+		3175F653216875350046CFFD /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3175F64E216875340046CFFD /* ViewModel.swift */; };
+		3175F654216875350046CFFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3175F64F216875350046CFFD /* Main.storyboard */; };
+		3175F656216875E20046CFFD /* MBProgressHUD+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3175F655216875E20046CFFD /* MBProgressHUD+Rx.swift */; };
+		3175F658216877420046CFFD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3175F657216877420046CFFD /* Constants.swift */; };
+		35AE2CA631AB83958ADB35D9 /* Pods_YahooImageSearchAction.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A8FA2FC21A804472B714342 /* Pods_YahooImageSearchAction.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		17C17DEFF328FA78729D47FC /* Pods-YahooImageSearchAction.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YahooImageSearchAction.release.xcconfig"; path = "Pods/Target Support Files/Pods-YahooImageSearchAction/Pods-YahooImageSearchAction.release.xcconfig"; sourceTree = "<group>"; };
 		3175F6362168747E0046CFFD /* YahooImageSearchAction.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YahooImageSearchAction.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3175F6392168747E0046CFFD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3175F63B2168747E0046CFFD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		3175F63E2168747E0046CFFD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3175F6402168747F0046CFFD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3175F6432168747F0046CFFD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3175F6452168747F0046CFFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3175F64B216875340046CFFD /* Img.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Img.swift; sourceTree = "<group>"; };
+		3175F64C216875340046CFFD /* ImageItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageItemCell.swift; sourceTree = "<group>"; };
+		3175F64D216875340046CFFD /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3175F64E216875340046CFFD /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		3175F64F216875350046CFFD /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		3175F655216875E20046CFFD /* MBProgressHUD+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MBProgressHUD+Rx.swift"; sourceTree = "<group>"; };
+		3175F657216877420046CFFD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		8A8FA2FC21A804472B714342 /* Pods_YahooImageSearchAction.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YahooImageSearchAction.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC8316A114524FEF165DD65B /* Pods-YahooImageSearchAction.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YahooImageSearchAction.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YahooImageSearchAction/Pods-YahooImageSearchAction.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35AE2CA631AB83958ADB35D9 /* Pods_YahooImageSearchAction.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +55,8 @@
 			children = (
 				3175F6382168747E0046CFFD /* YahooImageSearchAction */,
 				3175F6372168747E0046CFFD /* Products */,
+				B56D0D247FB885D0388576C0 /* Pods */,
+				DD39C87AE42B2B223C314A1B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,13 +72,35 @@
 			isa = PBXGroup;
 			children = (
 				3175F6392168747E0046CFFD /* AppDelegate.swift */,
-				3175F63B2168747E0046CFFD /* ViewController.swift */,
-				3175F63D2168747E0046CFFD /* Main.storyboard */,
+				3175F64C216875340046CFFD /* ImageItemCell.swift */,
+				3175F64B216875340046CFFD /* Img.swift */,
+				3175F64F216875350046CFFD /* Main.storyboard */,
+				3175F64D216875340046CFFD /* ViewController.swift */,
+				3175F64E216875340046CFFD /* ViewModel.swift */,
+				3175F655216875E20046CFFD /* MBProgressHUD+Rx.swift */,
+				3175F657216877420046CFFD /* Constants.swift */,
 				3175F6402168747F0046CFFD /* Assets.xcassets */,
 				3175F6422168747F0046CFFD /* LaunchScreen.storyboard */,
 				3175F6452168747F0046CFFD /* Info.plist */,
 			);
 			path = YahooImageSearchAction;
+			sourceTree = "<group>";
+		};
+		B56D0D247FB885D0388576C0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AC8316A114524FEF165DD65B /* Pods-YahooImageSearchAction.debug.xcconfig */,
+				17C17DEFF328FA78729D47FC /* Pods-YahooImageSearchAction.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		DD39C87AE42B2B223C314A1B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8A8FA2FC21A804472B714342 /* Pods_YahooImageSearchAction.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +110,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3175F6482168747F0046CFFD /* Build configuration list for PBXNativeTarget "YahooImageSearchAction" */;
 			buildPhases = (
+				64BE76E6352878EE9FF149E7 /* [CP] Check Pods Manifest.lock */,
 				3175F6322168747E0046CFFD /* Sources */,
 				3175F6332168747E0046CFFD /* Frameworks */,
 				3175F6342168747E0046CFFD /* Resources */,
+				F2AE3D3C7DF551E2B5668407 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -122,35 +163,95 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3175F654216875350046CFFD /* Main.storyboard in Resources */,
 				3175F6442168747F0046CFFD /* LaunchScreen.storyboard in Resources */,
 				3175F6412168747F0046CFFD /* Assets.xcassets in Resources */,
-				3175F63F2168747E0046CFFD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		64BE76E6352878EE9FF149E7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-YahooImageSearchAction-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F2AE3D3C7DF551E2B5668407 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-YahooImageSearchAction/Pods-YahooImageSearchAction-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Action/Action.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+				"${BUILT_PRODUCTS_DIR}/Kanna/Kanna.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxOptional/RxOptional.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SKPhotoBrowser/SKPhotoBrowser.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Action.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kanna.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxOptional.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SKPhotoBrowser.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YahooImageSearchAction/Pods-YahooImageSearchAction-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3175F6322168747E0046CFFD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3175F63C2168747E0046CFFD /* ViewController.swift in Sources */,
+				3175F653216875350046CFFD /* ViewModel.swift in Sources */,
 				3175F63A2168747E0046CFFD /* AppDelegate.swift in Sources */,
+				3175F650216875350046CFFD /* Img.swift in Sources */,
+				3175F652216875350046CFFD /* ViewController.swift in Sources */,
+				3175F658216877420046CFFD /* Constants.swift in Sources */,
+				3175F651216875350046CFFD /* ImageItemCell.swift in Sources */,
+				3175F656216875E20046CFFD /* MBProgressHUD+Rx.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		3175F63D2168747E0046CFFD /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3175F63E2168747E0046CFFD /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		3175F6422168747F0046CFFD /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -280,6 +381,7 @@
 		};
 		3175F6492168747F0046CFFD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AC8316A114524FEF165DD65B /* Pods-YahooImageSearchAction.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -297,6 +399,7 @@
 		};
 		3175F64A2168747F0046CFFD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 17C17DEFF328FA78729D47FC /* Pods-YahooImageSearchAction.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
