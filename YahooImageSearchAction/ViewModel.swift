@@ -15,15 +15,15 @@ import Kanna
 
 protocol ViewModelInputs {
     // 検索キーワード
-    var searchWord: Variable<String?> { get }
+    var searchWord: BehaviorRelay<String> { get }
     // 検索トリガ
     var searchTrigger: PublishSubject<Void> { get }
 }
 
 protocol ViewModelOutputs {
     // 検索結果
-    var items: Observable<[Img]> { get }
-    var values: Variable<[Img]> { get }
+    var items: Observable<[String]> { get }
+    var values: BehaviorRelay<[String]> { get }
     // 検索ボタンの押下可否
     var isSearchButtonEnabled: Observable<Bool> { get }
     // 検索中か
@@ -45,32 +45,33 @@ class ViewModel: ViewModelType, ViewModelInputs, ViewModelOutputs {
     var outputs: ViewModelOutputs { return self }
 
     // Input Sources
-    let searchWord = Variable<String?>(nil)     // 検索キーワード
+    let searchWord = BehaviorRelay<String>(value: "")     // 検索キーワード
     let searchTrigger = PublishSubject<Void>()  // 検索トリガ
 
     // Output Sources
-    let items: Observable<[Img]>                    // 検索結果
-    let values: Variable<[Img]>
+    let items: Observable<[String]>                    // 検索結果
+    let values = BehaviorRelay<[String]>(value: [])
     let isSearchButtonEnabled: Observable<Bool>     // 検索ボタンの押下可否
     let isLoading: Observable<Bool>                 // 検索中か
     let error: Observable<ActionError>              // エラー
 
-    private let action: Action<String, [Img]>       // 動作実態部分定義
+    private let action: Action<String, [String]>       // 動作実態部分定義
     private let disposeBag = DisposeBag()
 
     init() {
-        self.values = Variable<[Img]>([])
+        //self.values = BehaviorRelay<[Img]>(value: [])
         self.items = self.values.asObservable()
 
         // 検索キーワード3文字以上で検索可能に
         self.isSearchButtonEnabled = self.searchWord.asObservable()
-            .filterNil()
+            //.filterNil()
             .map { $0.count >= 3 }
 
         // アクション定義
         self.action = Action { keyword in
             // Yahoo画像検索
-            let urlStr =  "https://search.yahoo.co.jp/image/search?n=60&p=\(keyword)"
+            //let urlStr =  "https://search.yahoo.co.jp/image/search?n=60&p=\(keyword)"
+            let urlStr =  "https://search.yahoo.co.jp/image/search?ei=UTF-8&p=\(keyword)"
             let url = URL(string:urlStr.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!)!
 
             // User-Agentに自分のメールアドレスをセットしておく
@@ -81,15 +82,30 @@ class ViewModel: ViewModelType, ViewModelInputs, ViewModelOutputs {
             return URLSession.shared.rx.response(request: request)
                 .filter{ $0.response.statusCode == 200 }
                 .map{ $0.data }
-                .map{ try! HTML(html: $0 as Data, encoding: .utf8) }
+                
+                /*.map{ try! HTML(html: $0 as Data, encoding: .utf8) }
                 .map{ $0.css("img").compactMap { $0["src"] }.filter { $0.hasPrefix("https://msp.c.yimg.jp") } }
-                .map{ $0.compactMap{ Img(src:$0) } }
-                .asObservable()
+                .map{ $0.compactMap{ Img(src:$0) } }*/
+                
+                .map { String(data: $0, encoding: .utf8) }
+                .map { $0! }
+                .compactMap { str in
+                    let pattern = "(https?)://msp.c.yimg.jp/([A-Z0-9a-z._%+-/]{2,1024}).jpg"
+                    let regex = try! NSRegularExpression(pattern: pattern, options: [])
+                    let results = regex.matches(in: str, options: [], range: NSRange(0..<str.count))
+                    
+                    return results.map { result in
+                        let start = str.index(str.startIndex, offsetBy: result.range(at: 0).location)
+                        let end = str.index(start, offsetBy: result.range(at: 0).length)
+                        let text = String(str[start..<end])
+                        return text
+                    }.reduce([], { $0.contains($1) ? $0 : $0 + [$1] })
+                }.asObservable()
         }
 
         // 検索トリガ：検索可能な場合に検索キーワードをActionのinputsに渡す
         self.searchTrigger.withLatestFrom(self.searchWord.asObservable())
-            .filterNil()
+            //.filterNil()
             .bind(to:self.action.inputs)
             .disposed(by: disposeBag)
 

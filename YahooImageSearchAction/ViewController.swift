@@ -56,7 +56,7 @@ class ViewController: UIViewController {
         self.viewModel.outputs.items.asObservable()
             .bind(to: self.collectionView.rx.items(cellIdentifier: "ImageItemCell", cellType: ImageItemCell.self)) {
             (index, element, cell) in
-                cell.configure(URL(string: element.src)!)
+                cell.configure(URL(string: element)!)
             }.disposed(by: self.disposeBag)
 
         self.collectionView.rx.setDelegate(self)
@@ -83,7 +83,7 @@ class ViewController: UIViewController {
 extension ViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
          let photos: [SKPhoto] = self.viewModel.outputs.values.value
-            .compactMap { return SKPhoto.photoWithImageURL($0.src) }
+            .compactMap { return SKPhoto.photoWithImageURL($0) }
         
          let browser = SKPhotoBrowser(photos: photos)
          browser.initializePageIndex(indexPath.row)
